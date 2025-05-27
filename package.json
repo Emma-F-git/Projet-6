@@ -1,0 +1,11 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Contexte du projet :\r Les librairies “Au Vieux Grimoire“ comptent de nombreux clients\r passionnés. L’objectif du site “Mon Vieux Grimoire” est de donner la\r possibilité aux lecteurs de créer des livres, de les noter et de consulter les\r livres existants ainsi que leurs notes.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
