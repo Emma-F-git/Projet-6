@@ -40,6 +40,12 @@ app.post("../frontend/public/data/data", (req, res, next) => {
     .catch(error > res.status(400).json({ error: error }));
 });
 
+app.put("../frontend/public/data/data/:id", (req, res, next) => {
+  Book.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
+    .then(() => res.status(200).json({ message: "Livre modifié !" }))
+    .catch(error > res.status(404).json({ error: error }));
+});
+
 app.get("../frontend/public/data/data/:id", (req, res, next) => {
   Book.findOne({ _id: req.params.id })
     .then((book) => res.status(200).json(book))
