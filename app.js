@@ -40,18 +40,10 @@ app.post("../frontend/public/data/data.json", (req, res, next) => {
     .catch(error > res.status(400).json({ error: error }));
 });
 
-/*
 app.use((req, res, next) => {
-  res.status(201);
-  next();
+  Book.find()
+    .then((books) => res.status(200).json(books))
+    .catch(error > res.status(400).json({ error: error }));
 });
-app.use((req, res, next) => {
-  res.json({ message: "Votre requête a bien été reçue !" });
-  next();
-});
-app.use((req, res) => {
-  console.log("Réponse envoyée avec succès");
-});
-*/
 
 module.exports = app;
