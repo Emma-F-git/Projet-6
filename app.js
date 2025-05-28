@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 
 // TODO: Routes post+get à ajouter partie 1 du cours => en attente de voir la gestion authentification
 
-app.post("../frontend/public/data/data.json", (req, res, next) => {
+app.post("../frontend/public/data/data", (req, res, next) => {
   delete req.body._id;
   const book = new Book({
     ...req.body,
@@ -40,7 +40,13 @@ app.post("../frontend/public/data/data.json", (req, res, next) => {
     .catch(error > res.status(400).json({ error: error }));
 });
 
-app.use((req, res, next) => {
+app.get("../frontend/public/data/data/:id", (req, res, next) => {
+  Book.findOne({ _id: req.params.id })
+    .then((book) => res.status(200).json(book))
+    .catch(error > res.status(404).json({ error: error }));
+});
+
+app.get((req, res, next) => {
   Book.find()
     .then((books) => res.status(200).json(books))
     .catch(error > res.status(400).json({ error: error }));
