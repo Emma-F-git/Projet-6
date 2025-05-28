@@ -2,6 +2,10 @@ const express = require("express");
 
 const app = express();
 
+const mongoose = require("mongoose");
+
+app.use(express.json());
+
 /*middleware headers*/
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -15,6 +19,8 @@ app.use((req, res, next) => {
   );
   next();
 });
+
+// TODO: Routes post+get à ajouter partie 1 du cours => en attente de voir la gestion authentification
 
 app.use((req, res, next) => {
   res.status(201);
