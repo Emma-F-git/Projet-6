@@ -1,6 +1,7 @@
 /*Logique métier*/
 
 const Book = require("../models/Book");
+const fs = require("fs");
 
 exports.createBook = (req, res, next) => {
   const bookObject = JSON.parse(req.body.book);
