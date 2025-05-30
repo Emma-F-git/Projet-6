@@ -22,6 +22,7 @@ exports.createBook = (req, res, next) => {
       res.status(201).json({ message: "Livre enregistré !" });
     })
     .catch((error) => {
+      console.error(error);
       res.status(400).json({ error });
     });
 };

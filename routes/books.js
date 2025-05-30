@@ -1,15 +1,16 @@
 const express = require("express");
 const router = express.Router();
+
 const auth = require("../middleware/auth");
-const multer = require("../middleware/multer-config");
+const upload = require("../middleware/multer-config");
 
 const booksCtrl = require("../controllers/books");
 
 /*Routes CRUD création, lecture, modification, suppression*/
-router.get("/", auth, booksCtrl.getAllBooks);
-router.post("/", auth, multer, booksCtrl.createBook);
+router.get("/", booksCtrl.getAllBooks);
+router.post("/", auth, upload, booksCtrl.createBook);
 router.get("/:id", auth, booksCtrl.getOneBook);
-router.put("/:id", auth, multer, booksCtrl.modifyBook);
+router.put("/:id", auth, upload, booksCtrl.modifyBook);
 router.delete("/:id", auth, booksCtrl.deleteBook);
 
 module.exports = router;
