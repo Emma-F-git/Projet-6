@@ -1,12 +1,20 @@
 # Mon vieux Grimoire
 
-Contexte du projet :
+## Comment lancer le projet ?
+
+### Avec nodemon
+
+Faites la commande `nodemon server` pour lancer le projet.
+
+### Contexte du projet :
+
 Les librairies “Au Vieux Grimoire“ comptent de nombreux clients
 passionnés. L’objectif du site “Mon Vieux Grimoire” est de donner la
 possibilité aux lecteurs de créer des livres, de les noter et de consulter les
 livres existants ainsi que leurs notes.
 
-Architecture générale :
+### Architecture générale :
+
 L’application web est composée de 4 pages :
 ● une page pour permettre l’inscription / la connexion des utilisateurs ;
 ● une page d’accueil présentant les livres déjà ajoutés par les
