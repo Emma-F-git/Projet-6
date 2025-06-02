@@ -9,7 +9,8 @@ const booksCtrl = require("../controllers/books");
 /*Routes CRUD création, lecture, modification, suppression*/
 router.get("/", booksCtrl.getAllBooks);
 router.post("/", auth, upload, booksCtrl.createBook);
-router.get("/:id", auth, booksCtrl.getOneBook);
+router.get("/:id", booksCtrl.getOneBook);
+router.get("/bestrating", booksCtrl.getBestRatedBooks);
 router.put("/:id", auth, upload, booksCtrl.modifyBook);
 router.delete("/:id", auth, booksCtrl.deleteBook);
 
