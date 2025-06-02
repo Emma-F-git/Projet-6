@@ -89,7 +89,7 @@ exports.getAllBooks = (req, res, next) => {
     .catch((error) => res.status(400).json({ error: error }));
 };
 
-exports.getBestRatedBooks = (req, res, next) => {
+exports.getBestRating = (req, res, next) => {
   Book.find()
     .sort({ averageRating: -1 })
     .limit(3)
