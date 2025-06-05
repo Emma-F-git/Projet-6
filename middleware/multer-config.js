@@ -19,7 +19,7 @@ const storage = multer.diskStorage({
 
   /*Mise en forme de l'image*/
   filename: (req, file, callback) => {
-    const randomName = crypto.randomBytes(16).toString("hex");
+    const randomName = crypto.randomBytes(10).toString("hex");
     const ext = MIME_TYPES[file.mimetype];
     callback(null, `${randomName}.${ext}`);
   },
