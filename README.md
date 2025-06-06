@@ -4,7 +4,7 @@
 
 Faites la commande `nodemon server` pour lancer le projet.
 
-### Contexte du projet :
+### Contexte du projet
 
 Ce projet est réalisé dans le cadre du parcours développeur web Openclassrooms.
 Objectif : créer l'API backend du site “Mon Vieux Grimoire” une application de notation et de référencement de livres pour une chaîne de librairies.
