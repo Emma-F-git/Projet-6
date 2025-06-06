@@ -1,8 +1,6 @@
 # Mon vieux Grimoire
 
-## Comment lancer le projet ?
-
-### Avec nodemon
+### Lancer le projet avec nodemon
 
 Faites la commande `nodemon server` pour lancer le projet.
 
