@@ -52,7 +52,7 @@ module.exports = (req, res, next) => {
 
     try {
       await sharp(inputPath)
-        .resize({ width: 400, height: 504, fit: "cover" })
+        .resize({ width: 463, height: 595, fit: "cover" })
         .webp({ quality: 100 })
         .toFile(webpPath);
 
