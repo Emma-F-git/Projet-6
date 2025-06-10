@@ -52,8 +52,8 @@ module.exports = (req, res, next) => {
 
     try {
       await sharp(inputPath)
-        .resize({ width: 463, height: 595, fit: "cover" })
-        .webp({ quality: 100 })
+        .resize({ width: 463, height: 595, fit: "inside" })
+        .webp({ quality: 50 })
         .toFile(webpPath);
 
       fs.unlinkSync(inputPath);
