@@ -42,7 +42,9 @@ exports.modifyBook = (req, res, next) => {
   Book.findOne({ _id: req.params.id })
     .then((book) => {
       if (book.userId != req.auth.userId) {
-        res.status(403).json({ message: "Unauthorized request" });
+        return res
+          .status(403)
+          .json({ error: new Error("Unauthorized request").message });
       }
 
       if (req.file) {
@@ -98,18 +100,21 @@ exports.getAllBooks = (req, res, next) => {
 exports.ratingBook = (req, res, next) => {
   const { userId, rating } = req.body;
   if (rating < 0 || rating > 5) {
-    return res.status(400).json({ message: "Note invalide" });
+    return res.status(400).json({ error: new Error("Note invalide").message });
   }
 
   Book.findById(req.params.id)
     .then((book) => {
-      if (!book) return res.status(404).json({ message: "Livre introuvable" });
+      if (!book)
+        return res
+          .status(404)
+          .json({ error: new Error("Livre introuvable").message });
 
       const alreadyRated = book.ratings.find((r) => r.userId === userId);
       if (alreadyRated) {
         return res
           .status(403)
-          .json({ message: "Vous avez déjà noté ce livre" });
+          .json({ error: new Error("Vous avez déjà noté ce livre").message });
       }
 
       book.ratings.push({ userId, grade: rating });

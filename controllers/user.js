@@ -24,7 +24,10 @@ exports.login = (req, res, next) => {
       if (user === null) {
         res
           .status(401)
-          .json({ message: "Paire identifiant/mot de passe incorrecte" });
+          .json({
+            error: new Error("Paire identifiant/mot de passe incorrecte")
+              .message,
+          });
       } else {
         bcrypt
           .compare(req.body.password, user.password)
@@ -32,7 +35,10 @@ exports.login = (req, res, next) => {
             if (!valid) {
               res
                 .status(401)
-                .json({ message: "Paire identifiant/mot de passe incorrecte" });
+                .json({
+                  error: new Error("Paire identifiant/mot de passe incorrecte")
+                    .message,
+                });
             } else {
               res.status(200).json({
                 userId: user._id,
